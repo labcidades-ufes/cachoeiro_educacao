@@ -8,7 +8,7 @@ import shutil
 
 
 def download_limites_municipios():
-    caminho_arquivo = '..\\dados\\dados_baixados\\limites_municipios_ES.geojson'
+    caminho_arquivo = 'dados\\dados_baixados\\limites_municipios_ES.geojson'
     os.makedirs(os.path.dirname(caminho_arquivo), exist_ok=True)
     
     # URL base do serviço WFS
@@ -77,7 +77,7 @@ def download_unidade_ensino_ES():
     if response.status_code == 200:
         # Definir o caminho do arquivo para salvar
         caminho_arquivo = os.path.join(
-            "..", "dados", "dados_baixados", "unidades_ensino_ES.geojson")
+            "dados", "dados_baixados", "unidades_ensino_ES.geojson")
 
         # Salvar o resultado GeoJSON no arquivo
         total_tamanho = int(response.headers.get(
@@ -106,9 +106,9 @@ def download_population_cachoeiro():
 
     # Caminho para salvar o arquivo baixado
     caminho_arquivo_gz = os.path.join(
-        "..", "dados", "dados_baixados", nome_arquivo_gpkg + ".gz")
+        "dados", "dados_baixados", nome_arquivo_gpkg + ".gz")
     caminho_arquivo_gpkg = os.path.join(
-        "..", "dados", "dados_baixados", nome_arquivo_gpkg)
+        "dados", "dados_baixados", nome_arquivo_gpkg)
 
     # Baixar o arquivo
     print("Baixando arquivo kontur_population_BR_20231101.gpkg ...")

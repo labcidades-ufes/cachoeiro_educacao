@@ -3,12 +3,12 @@ import geopandas as gpd
 
 
 def obter_limite_municipio_cachoeiro_de_itapemirim():
-    caminho_arquivo = '..\\dados\\dados_tratados\\limite_municipio_cachoeiro_de_itapemirim.geojson'
+    caminho_arquivo = 'dados\\dados_tratados\\limite_municipio_cachoeiro_de_itapemirim.geojson'
     os.makedirs(os.path.dirname(caminho_arquivo), exist_ok=True)
     
     # Definir o caminho relativo
     caminho_municipios = os.path.join(
-        "..", "dados", "dados_baixados", "limites_municipios_ES.geojson")
+        "dados", "dados_baixados", "limites_municipios_ES.geojson")
 
     # Carregar os dados
     gdf_municipios = gpd.read_file(caminho_municipios)
@@ -26,9 +26,9 @@ def obter_limite_municipio_cachoeiro_de_itapemirim():
 def obter_hexagonos_cachoeiro_de_itapemirim():
     # Definir o caminho relativo
     caminho_municipios = os.path.join(
-        "..", "dados", "dados_tratados", "limite_municipio_cachoeiro_de_itapemirim.geojson")
+        "dados", "dados_tratados", "limite_municipio_cachoeiro_de_itapemirim.geojson")
     caminho_population = os.path.join(
-        "..", "dados", "dados_baixados", "kontur_population_BR_20231101.gpkg")
+        "dados", "dados_baixados", "kontur_population_BR_20231101.gpkg")
 
     # Carregar os dados
     municipio_cachoeiro_de_itapemirim = gpd.read_file(caminho_municipios)
@@ -47,14 +47,14 @@ def obter_hexagonos_cachoeiro_de_itapemirim():
         print("Nenhuma interseção encontrada para o município de Cachoeiro de Itapemirim.")
 
     # salva o arquivo
-    intersected.to_file(os.path.join("..", "dados", "dados_tratados",
+    intersected.to_file(os.path.join("dados", "dados_tratados",
                         "population_cachoeiro_de_itapemirim.geojson"), driver='GeoJSON')
     print("População de Cachoeiro de Itapemirim criada.")
 
 
 def obter_unidades_educacao_cachoeiro_de_itapemirim():
     # Definir o caminho relativo
-    caminho_geojson_unidades_ensino_ES = os.path.join("..", "dados", "dados_baixados", "unidades_ensino_ES.geojson")
+    caminho_geojson_unidades_ensino_ES = os.path.join("dados", "dados_baixados", "unidades_ensino_ES.geojson")
 
     # Carregar os dados
     gdf_unidades_ensino_ES = gpd.read_file(caminho_geojson_unidades_ensino_ES)
@@ -80,7 +80,7 @@ def obter_unidades_educacao_cachoeiro_de_itapemirim():
 
     # salva o arquivo
     gdf_unidades_ensino_cachoeiro_de_itapemirim.to_file(os.path.join(
-        "..", "dados", "dados_tratados", "unidades_ensino_cachoeiro_de_itapemirim.geojson"), driver='GeoJSON')
+        "dados", "dados_tratados", "unidades_ensino_cachoeiro_de_itapemirim.geojson"), driver='GeoJSON')
     print("Unidades de ensino de Cachoeiro de Itapemirim criadas.")
 
     # #unidades de saude de apoio de Cachoeiro de Itapemirim

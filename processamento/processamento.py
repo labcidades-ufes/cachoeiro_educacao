@@ -9,7 +9,7 @@ import math
 def obter_centroides():
     # Definir o caminho relativo
     caminho_geojson_population_cachoeiro_de_itapemirim = os.path.join(
-        "..", "dados", "dados_tratados", "population_cachoeiro_de_itapemirim.geojson")
+        "dados", "dados_tratados", "population_cachoeiro_de_itapemirim.geojson")
 
     # Carregar os dados
     gdf_population_cachoeiro_de_itapemirim = gpd.read_file(caminho_geojson_population_cachoeiro_de_itapemirim)
@@ -25,7 +25,7 @@ def obter_centroides():
     gdf_centroides.set_geometry('centroid', inplace=True)
 
     # salva o arquivo
-    gdf_centroides.to_file(os.path.join("..", "dados", "dados_processados", "population_cachoeiro_de_itapemirim_centroides.geojson"), driver='GeoJSON')
+    gdf_centroides.to_file(os.path.join("dados", "dados_processados", "population_cachoeiro_de_itapemirim_centroides.geojson"), driver='GeoJSON')
     print("Centroides criados.")
 
 
@@ -33,7 +33,7 @@ def obter_centroides():
 def obter_dados_viarios_expandido(buffer_size=5000):
     # Definir o caminho relativo
     caminho_municipio = os.path.join(
-        "..", "dados", "dados_tratados", "limite_municipio_cachoeiro_de_itapemirim.geojson")
+        "dados", "dados_tratados", "limite_municipio_cachoeiro_de_itapemirim.geojson")
 
     # Carregar os dados
     municipio_cachoeiro_de_itapemirim = gpd.read_file(caminho_municipio)
@@ -66,21 +66,21 @@ def obter_dados_viarios_expandido(buffer_size=5000):
     gdf_viario = ox.graph_to_gdfs(G, nodes=False)
 
     # salva o geodataframe
-    gdf_viario.to_file(os.path.join("..", "dados", "dados_processados",
+    gdf_viario.to_file(os.path.join("dados", "dados_processados",
                        "viario_expandido_cachoeiro_de_itapemirim.geojson"), driver='GeoJSON')
     print("Rede viaria expandida criada.")
 
     # Salvar o grafo em formato GraphML
     ox.save_graphml(G, filepath=os.path.join(
-        "..", "dados", "dados_processados", "grafo_viario_expandido_cachoeiro_de_itapemirim.graphml"))
+        "dados", "dados_processados", "grafo_viario_expandido_cachoeiro_de_itapemirim.graphml"))
 
 
 # Função para calcular e desenhar a rota mais curta
 def obter_rotas_centroide_para_educacao():
     # Definir o caminho relativo
-    caminho_grafo = os.path.join("..", "dados", "dados_processados", "grafo_viario_expandido_cachoeiro_de_itapemirim.graphml")
-    caminho_geojson_population_cachoeiro_de_itapemirim_centroides = os.path.join("..", "dados", "dados_processados", "population_cachoeiro_de_itapemirim_centroides.geojson")
-    caminho_geojson_unidades_ensino_cachoeiro_de_itapemirim = os.path.join("..", "dados", "dados_tratados", "unidades_ensino_cachoeiro_de_itapemirim.geojson")
+    caminho_grafo = os.path.join("dados", "dados_processados", "grafo_viario_expandido_cachoeiro_de_itapemirim.graphml")
+    caminho_geojson_population_cachoeiro_de_itapemirim_centroides = os.path.join("dados", "dados_processados", "population_cachoeiro_de_itapemirim_centroides.geojson")
+    caminho_geojson_unidades_ensino_cachoeiro_de_itapemirim = os.path.join("dados", "dados_tratados", "unidades_ensino_cachoeiro_de_itapemirim.geojson")
 
     # Carregar os dados
     grafo_viario = ox.load_graphml(caminho_grafo)
@@ -141,17 +141,17 @@ def obter_rotas_centroide_para_educacao():
 
     # salva o geodataframe
     gdf_rotas.to_file(os.path.join(
-        "..", "dados", "dados_processados", "rotas.geojson"), driver='GeoJSON')
+        "dados", "dados_processados", "rotas.geojson"), driver='GeoJSON')
     print("\nRotas para unidades de saúde criadas.")
 
 
 def obter_gdf_peso_hexagonos():
     # Definir o caminho relativo
     caminho_grafo = os.path.join(
-        "..", "dados", "dados_processados", "grafo_viario_expandido_cachoeiro_de_itapemirim.graphml")
-    caminho_geojson_population_cachoeiro_de_itapemirim = os.path.join("..", "dados", "dados_tratados", "population_cachoeiro_de_itapemirim.geojson")
-    caminho_geojson_population_cachoeiro_de_itapemirim_centroides = os.path.join("..", "dados", "dados_processados", "population_cachoeiro_de_itapemirim_centroides.geojson")
-    caminho_geojson_unidades_ensino_cachoeiro_de_itapemirim = os.path.join("..", "dados", "dados_tratados", "unidades_ensino_cachoeiro_de_itapemirim.geojson")
+        "dados", "dados_processados", "grafo_viario_expandido_cachoeiro_de_itapemirim.graphml")
+    caminho_geojson_population_cachoeiro_de_itapemirim = os.path.join("dados", "dados_tratados", "population_cachoeiro_de_itapemirim.geojson")
+    caminho_geojson_population_cachoeiro_de_itapemirim_centroides = os.path.join("dados", "dados_processados", "population_cachoeiro_de_itapemirim_centroides.geojson")
+    caminho_geojson_unidades_ensino_cachoeiro_de_itapemirim = os.path.join("dados", "dados_tratados", "unidades_ensino_cachoeiro_de_itapemirim.geojson")
 
     # Carregar os dados
     grafo_viario = ox.load_graphml(caminho_grafo)
@@ -247,5 +247,5 @@ def obter_gdf_peso_hexagonos():
 
     # salva o geodataframe
     gdf_novo_hexagonos.to_parquet(os.path.join(
-        "..", "dados", "dados_processados", "peso_hexagonos.parquet"))
+        "dados", "dados_processados", "peso_hexagonos.parquet"))
     print("\nPesos criados.")
