@@ -3,8 +3,8 @@ import geopandas as gpd
 
 
 def obter_limite_municipio_cachoeiro_de_itapemirim():
-    caminho_arquivo = 'dados\\dados_tratados\\limite_municipio_cachoeiro_de_itapemirim.geojson'
-    os.makedirs(os.path.dirname(caminho_arquivo), exist_ok=True)
+    caminho_arquivo = os.path.join("dados", "dados_tratados", "limite_municipio_cachoeiro_de_itapemirim.geojson")
+    #os.makedirs(os.path.dirname(caminho_arquivo), exist_ok=True)
     
     # Definir o caminho relativo
     caminho_municipios = os.path.join(
