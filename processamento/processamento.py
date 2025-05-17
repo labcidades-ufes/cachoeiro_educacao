@@ -115,8 +115,7 @@ def obter_rotas_centroide_para_educacao():
         # print(f"Nó de origem: {nodo_origem}, Nó de destino: {nodo_destino}")
 
         if nodo_origem == nodo_destino:
-            print(f"Origem e destino são os mesmos para o centroide {
-                  idx}. Pulando...")
+            print(f"Origem e destino são os mesmos para o centroide {idx}. Pulando...")
             continue
 
         # Calcular a rota mais curta entre os nós usando o peso 'length' (distância em metros)
