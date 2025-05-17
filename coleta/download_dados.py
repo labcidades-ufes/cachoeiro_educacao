@@ -8,8 +8,8 @@ import shutil
 
 
 def download_limites_municipios():
-    caminho_arquivo = 'dados\\dados_baixados\\limites_municipios_ES.geojson'
-    os.makedirs(os.path.dirname(caminho_arquivo), exist_ok=True)
+    caminho_arquivo = os.path.join("dados", "dados_baixados", "limites_municipios_ES.geojson")
+    # os.makedirs(os.path.dirname(caminho_arquivo), exist_ok=True)
     
     # URL base do serviço WFS
     base_url = "https://ide.geobases.es.gov.br/geoserver/ows"
